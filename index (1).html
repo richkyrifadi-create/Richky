@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="id">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfolio Richky</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single column, asymmetric — big name block left, index-card sections stacked, cobalt as the only loud color */
+:root{
+  --bg:#eef0f3; --surface:#ffffff; --ink:#14172b; --muted:#5b6078; --line:#d5d9e3;
+  --accent:#2a44d6; --accent-ink:#ffffff; --mark:#ffe36b;
+  --display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --body:"Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1120; --surface:#181b2e; --ink:#e9ebf5; --muted:#9ba1bd; --line:#2b3050;
+  --accent:#7d8fff; --accent-ink:#0f1120; --mark:#6b5a12; color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0f1120; --surface:#181b2e; --ink:#e9ebf5; --muted:#9ba1bd; --line:#2b3050;
+  --accent:#7d8fff; --accent-ink:#0f1120; --mark:#6b5a12; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1rem;line-height:1.6}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo{font-family:var(--display);font-weight:800;font-size:1.15rem;text-decoration:none;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.links{display:flex;gap:clamp(12px,3vw,28px);font-size:.9rem;flex-wrap:wrap}
+.links a{text-decoration:none;color:var(--muted)}
+.links a:hover{color:var(--ink)}
+@media (max-width:560px){.links{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(48px,9vw,110px) clamp(40px,6vw,72px);display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(28px,5vw,64px);align-items:end}
+@media (max-width:780px){.hero{grid-template-columns:1fr}}
+.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.78rem;color:var(--muted);border:1px solid var(--line);padding:6px 12px;border-radius:99px;background:var(--surface)}
+.status i{width:8px;height:8px;border-radius:50%;background:#22b46b;box-shadow:0 0 0 4px color-mix(in srgb,#22b46b 25%,transparent)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(3rem,10vw,6.4rem);line-height:.92;letter-spacing:-.045em;margin:22px 0 18px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.lede{font-size:clamp(1.05rem,2vw,1.25rem);max-width:34ch;color:var(--muted);margin:0}
+.lede b{color:var(--ink);font-weight:600;background:linear-gradient(transparent 60%,var(--mark) 60%)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:10px;font-weight:600;text-decoration:none;font-size:.95rem;border:1px solid var(--ink);cursor:pointer;font-family:inherit;background:transparent;color:var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{transform:translateY(-1px)}
+.btn{transition:transform .15s}
+
+.idcard{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:16px}
+.avatar{aspect-ratio:1;max-width:100%;border-radius:12px;background:
+  radial-gradient(circle at 50% 38%,color-mix(in srgb,var(--accent) 60%,var(--surface)) 0 18%,transparent 18.5%),
+  radial-gradient(ellipse at 50% 100%,color-mix(in srgb,var(--accent) 60%,var(--surface)) 0 38%,transparent 38.5%),
+  repeating-linear-gradient(135deg,color-mix(in srgb,var(--accent) 10%,var(--surface)) 0 10px,var(--surface) 10px 20px);
+  display:grid;place-items:end start;padding:12px;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+.facts{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:.88rem;margin:0}
+.facts dt{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.facts dd{margin:0}
+
+/* sections */
+section{padding-block:clamp(48px,7vw,84px);border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:32px}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(2rem,5vw,3rem);letter-spacing:-.035em;line-height:1;margin:0}
+.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(24px,5vw,56px)}
+@media (max-width:780px){.about{grid-template-columns:1fr}}
+.about p{margin:0 0 1em;max-width:62ch;font-size:1.06rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-content:start}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
+.stat strong{display:block;font-family:var(--display);font-size:2.2rem;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stat span{font-size:.8rem;color:var(--muted)}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+.skills h3{font-size:.95rem;margin:0 0 12px;font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.chips li{border:1px solid var(--line);background:var(--surface);padding:6px 12px;border-radius:99px;font-size:.86rem}
+
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+@media (max-width:700px){.projects{grid-template-columns:1fr}}
+.proj{display:grid;gap:14px;text-decoration:none;min-width:0}
+.thumb{aspect-ratio:16/10;max-width:100%;border-radius:14px;border:1px solid var(--line);overflow:hidden;position:relative;transition:transform .25s}
+.proj:hover .thumb{transform:translateY(-4px)}
+.t1{background:linear-gradient(160deg,var(--accent),color-mix(in srgb,var(--accent) 40%,#000))}
+.t1::after{content:"";position:absolute;inset:18% 14% -10% 14%;background:var(--surface);border-radius:10px 10px 0 0;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.t2{background:var(--mark)}
+.t2::after{content:"";position:absolute;width:46%;aspect-ratio:9/16;left:27%;top:12%;background:var(--ink);border-radius:18px}
+.t3{background:repeating-linear-gradient(90deg,var(--surface) 0 22px,color-mix(in srgb,var(--accent) 14%,var(--surface)) 22px 44px)}
+.t3::after{content:"Aa";position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:clamp(4rem,12vw,7rem);color:var(--accent);letter-spacing:-.05em}
+.t4{background:var(--ink)}
+.t4::after{content:"";position:absolute;left:10%;right:10%;bottom:16%;height:52%;background:linear-gradient(to top,var(--accent) 0 100%) 0 100%/14% 40% no-repeat,linear-gradient(var(--accent),var(--accent)) 28% 100%/14% 70% no-repeat,linear-gradient(var(--accent),var(--accent)) 57% 100%/14% 55% no-repeat,linear-gradient(var(--mark),var(--mark)) 86% 100%/14% 100% no-repeat}
+.proj-meta{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.proj h3{font-family:var(--display);font-size:1.35rem;margin:0;letter-spacing:-.02em}
+.proj p{margin:4px 0 0;color:var(--muted);font-size:.93rem}
+.tag{font-family:var(--mono);font-size:.72rem;color:var(--muted);white-space:nowrap}
+
+.timeline{list-style:none;margin:0;padding:0;display:grid}
+.timeline li{display:grid;grid-template-columns:140px 1fr;gap:16px;padding-block:18px;border-bottom:1px solid var(--line)}
+.timeline li:first-child{padding-top:0}
+@media (max-width:560px){.timeline li{grid-template-columns:1fr;gap:4px}}
+.when{font-family:var(--mono);font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.timeline h3{margin:0;font-size:1.05rem}
+.timeline p{margin:4px 0 0;color:var(--muted);font-size:.93rem;max-width:60ch}
+
+.contact{background:var(--accent);color:var(--accent-ink);border-radius:22px;padding:clamp(28px,6vw,56px);display:grid;gap:22px}
+.contact h2{font-size:clamp(2.2rem,7vw,4.2rem);max-width:14ch;text-wrap:balance}
+.mailrow{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.mail{font-family:var(--mono);font-size:clamp(.95rem,2.4vw,1.2rem);background:color-mix(in srgb,var(--accent-ink) 14%,transparent);padding:10px 16px;border-radius:10px;user-select:all;word-break:break-all}
+.contact .btn{border-color:var(--accent-ink);color:var(--accent-ink)}
+.socials{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:.95rem}
+.socials a{text-underline-offset:4px}
+footer{padding-block:32px;color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.ph{font-family:var(--mono);font-size:.7rem;background:var(--mark);color:var(--ink);padding:1px 6px;border-radius:4px;vertical-align:middle}
+</style>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">richky<span>.</span></a>
+    <div class="links">
+      <a href="#tentang">Tentang</a><a href="#keahlian">Keahlian</a><a href="#proyek">Proyek</a><a href="#pengalaman">Pengalaman</a><a href="#kontak">Kontak</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+  <header class="hero">
+    <div>
+      <span class="status"><i></i>Terbuka untuk proyek baru</span>
+      <h1>Halo, gw <em>Richky Rifadi.</em></h1>
+      <p class="lede"><b>Mahasiswa IT di Pradita University</b>. Ini kumpulan karya dan proyek gw.</p>
+      <div class="cta">
+        <a class="btn primary" href="#proyek">Lihat proyek →</a>
+        <a class="btn" href="#kontak">Hubungi gw</a>
+      </div>
+    </div>
+    <aside class="idcard" aria-label="Kartu profil">
+      <div class="avatar">foto kamu di sini</div>
+      <dl class="facts">
+        <dt>Nama</dt><dd>Richky Rifadi</dd>
+        <dt>Peran</dt><dd>Mahasiswa IT</dd>
+        <dt>Kampus</dt><dd>Pradita University</dd>
+        <dt>Fokus</dt><dd>Cybersecurity Engineer</dd>
+      </dl>
+    </aside>
+  </header>
+
+  <section id="tentang">
+    <div class="sec-head"><h2>Tentang</h2><span class="eyebrow">Siapa gw</span></div>
+    <div class="about">
+      <div>
+        <p>Gw seorang introvert yang sayang banget sama Barca. Visca el Barça!</p>
+        <p>Di waktu luang, gw paling suka main game dan dengerin musik.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><strong>3+</strong><span>tahun pengalaman</span></div>
+        <div class="stat"><strong>20</strong><span>proyek selesai</span></div>
+        <div class="stat"><strong>12</strong><span>klien puas</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="keahlian">
+    <div class="sec-head"><h2>Keahlian</h2><span class="eyebrow">Tools &amp; skill</span></div>
+    <div class="skills">
+      <div><h3>Desain</h3><ul class="chips"><li>Figma</li><li>UI/UX</li><li>Branding</li><li>Canva</li></ul></div>
+      <div><h3>Pengembangan</h3><ul class="chips"><li>HTML &amp; CSS</li><li>JavaScript</li><li>React</li><li>WordPress</li></ul></div>
+      <div><h3>Konten</h3><ul class="chips"><li>Video editing</li><li>CapCut</li><li>Copywriting</li><li>Fotografi</li></ul></div>
+    </div>
+  </section>
+
+  <section id="proyek">
+    <div class="sec-head"><h2>Proyek pilihan</h2><span class="eyebrow">4 contoh karya</span></div>
+    <div class="projects">
+      <a class="proj" href="#proyek"><div class="thumb t1"></div><div class="proj-meta"><div><h3>Website Kopi Senja</h3><p>Landing page untuk kedai kopi lokal, pesanan online naik 40%.</p></div><span class="tag">Web · 2026</span></div></a>
+      <a class="proj" href="#proyek"><div class="thumb t2"></div><div class="proj-meta"><div><h3>Aplikasi Catat Duit</h3><p>Desain aplikasi pencatat keuangan untuk anak kos.</p></div><span class="tag">UI/UX · 2025</span></div></a>
+      <a class="proj" href="#proyek"><div class="thumb t3"></div><div class="proj-meta"><div><h3>Rebranding Toko Batik</h3><p>Logo, warna, dan tipografi baru untuk UMKM batik.</p></div><span class="tag">Brand · 2025</span></div></a>
+      <a class="proj" href="#proyek"><div class="thumb t4"></div><div class="proj-meta"><div><h3>Konten TikTok 30 Hari</h3><p>Seri video edukasi, total 1,2 juta views.</p></div><span class="tag">Konten · 2024</span></div></a>
+    </div>
+  </section>
+
+  <section id="pengalaman">
+    <div class="sec-head"><h2>Pengalaman</h2><span class="eyebrow">Perjalanan</span></div>
+    <ul class="timeline">
+      <li><span class="when">2025 — sekarang</span><div><h3>Freelancer</h3><p>Kerja bareng UMKM dan kreator untuk desain, website, dan konten.</p></div></li>
+      <li><span class="when">2023 — 2025</span><div><h3>Desainer Junior, Studio Contoh</h3><p>Pegang aset media sosial dan landing page untuk 10+ klien.</p></div></li>
+      <li><span class="when">Sekarang</span><div><h3>Mahasiswa IT, Pradita University</h3><p>Sedang kuliah di bidang Teknologi Informasi.</p></div></li>
+    </ul>
+  </section>
+
+  <section id="kontak">
+    <div class="contact">
+      <span class="eyebrow" style="color:inherit;opacity:.8">Kontak</span>
+      <h2>Ada proyek? Yuk ngobrol.</h2>
+      <div class="mailrow">
+        <span class="mail" id="mail">richkyrifadi@gmail.com</span>
+        <button class="btn" id="copy" type="button">Salin email</button>
+      </div>
+      <div class="socials">
+        <a href="https://www.instagram.com/rchk_y" target="_blank" rel="noopener">Instagram @rchk_y</a>
+        <a href="https://www.tiktok.com/@rchk_y" target="_blank" rel="noopener">TikTok @rchk_y</a>
+      </div>
+    </div>
+  </section>
+
+  <footer><span>© 2026 Richky Rifadi</span><span>Isi halaman ini masih contoh dan akan diganti dengan data asli.</span></footer>
+</main>
+
+<script>
+document.getElementById('copy').addEventListener('click', async e => {
+  const b = e.currentTarget, t = document.getElementById('mail').textContent;
+  try { await navigator.clipboard.writeText(t); b.textContent = 'Tersalin ✓'; }
+  catch { const r = document.createRange(); r.selectNodeContents(document.getElementById('mail')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Tekan Ctrl+C'; }
+  setTimeout(() => b.textContent = 'Salin email', 2000);
+});
+</script>
