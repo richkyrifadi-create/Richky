@@ -1,224 +1,329 @@
 <!doctype html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Portfolio Richky</title>
+<title>Richky Rifadi — Portfolio</title>
+<meta name="description" content="Portfolio Richky Rifadi, mahasiswa IT di Pradita University dengan fokus Cybersecurity Engineer.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500&display=swap">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: { brand: { dark: '#0B0D11', accent: '#7DD3FC' } },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          mono: ['"Geist Mono"', 'ui-monospace', 'monospace']
+        }
+      }
+    }
+  }
+</script>
 <style>
-/* Layout: single column, asymmetric — big name block left, index-card sections stacked, cobalt as the only loud color */
-:root{
-  --bg:#eef0f3; --surface:#ffffff; --ink:#14172b; --muted:#5b6078; --line:#d5d9e3;
-  --accent:#2a44d6; --accent-ink:#ffffff; --mark:#ffe36b;
-  --display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
-  --body:"Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0f1120; --surface:#181b2e; --ink:#e9ebf5; --muted:#9ba1bd; --line:#2b3050;
-  --accent:#7d8fff; --accent-ink:#0f1120; --mark:#6b5a12; color-scheme:dark;
-}}
-:root[data-theme="dark"]{
-  --bg:#0f1120; --surface:#181b2e; --ink:#e9ebf5; --muted:#9ba1bd; --line:#2b3050;
-  --accent:#7d8fff; --accent-ink:#0f1120; --mark:#6b5a12; color-scheme:dark;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1rem;line-height:1.6}
-.wrap{max-width:1040px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-
-/* nav */
-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
-.logo{font-family:var(--display);font-weight:800;font-size:1.15rem;text-decoration:none;letter-spacing:-.02em}
-.logo span{color:var(--accent)}
-.links{display:flex;gap:clamp(12px,3vw,28px);font-size:.9rem;flex-wrap:wrap}
-.links a{text-decoration:none;color:var(--muted)}
-.links a:hover{color:var(--ink)}
-@media (max-width:560px){.links{display:none}}
-
-/* hero */
-.hero{padding-block:clamp(48px,9vw,110px) clamp(40px,6vw,72px);display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(28px,5vw,64px);align-items:end}
-@media (max-width:780px){.hero{grid-template-columns:1fr}}
-.status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.78rem;color:var(--muted);border:1px solid var(--line);padding:6px 12px;border-radius:99px;background:var(--surface)}
-.status i{width:8px;height:8px;border-radius:50%;background:#22b46b;box-shadow:0 0 0 4px color-mix(in srgb,#22b46b 25%,transparent)}
-h1{font-family:var(--display);font-weight:800;font-size:clamp(3rem,10vw,6.4rem);line-height:.92;letter-spacing:-.045em;margin:22px 0 18px;text-wrap:balance}
-h1 em{font-style:normal;color:var(--accent)}
-.lede{font-size:clamp(1.05rem,2vw,1.25rem);max-width:34ch;color:var(--muted);margin:0}
-.lede b{color:var(--ink);font-weight:600;background:linear-gradient(transparent 60%,var(--mark) 60%)}
-.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:10px;font-weight:600;text-decoration:none;font-size:.95rem;border:1px solid var(--ink);cursor:pointer;font-family:inherit;background:transparent;color:var(--ink)}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.btn:hover{transform:translateY(-1px)}
-.btn{transition:transform .15s}
-
-.idcard{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:16px}
-.avatar{aspect-ratio:1;max-width:100%;border-radius:12px;background:
-  radial-gradient(circle at 50% 38%,color-mix(in srgb,var(--accent) 60%,var(--surface)) 0 18%,transparent 18.5%),
-  radial-gradient(ellipse at 50% 100%,color-mix(in srgb,var(--accent) 60%,var(--surface)) 0 38%,transparent 38.5%),
-  repeating-linear-gradient(135deg,color-mix(in srgb,var(--accent) 10%,var(--surface)) 0 10px,var(--surface) 10px 20px);
-  display:grid;place-items:end start;padding:12px;font-family:var(--mono);font-size:.72rem;color:var(--muted)}
-.facts{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:.88rem;margin:0}
-.facts dt{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:2px}
-.facts dd{margin:0}
-
-/* sections */
-section{padding-block:clamp(48px,7vw,84px);border-top:1px solid var(--line)}
-.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:32px}
-h2{font-family:var(--display);font-weight:800;font-size:clamp(2rem,5vw,3rem);letter-spacing:-.035em;line-height:1;margin:0}
-.eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-
-.about{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(24px,5vw,56px)}
-@media (max-width:780px){.about{grid-template-columns:1fr}}
-.about p{margin:0 0 1em;max-width:62ch;font-size:1.06rem}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-content:start}
-.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
-.stat strong{display:block;font-family:var(--display);font-size:2.2rem;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.stat span{font-size:.8rem;color:var(--muted)}
-
-.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
-.skills h3{font-size:.95rem;margin:0 0 12px;font-weight:600}
-.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
-.chips li{border:1px solid var(--line);background:var(--surface);padding:6px 12px;border-radius:99px;font-size:.86rem}
-
-.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-@media (max-width:700px){.projects{grid-template-columns:1fr}}
-.proj{display:grid;gap:14px;text-decoration:none;min-width:0}
-.thumb{aspect-ratio:16/10;max-width:100%;border-radius:14px;border:1px solid var(--line);overflow:hidden;position:relative;transition:transform .25s}
-.proj:hover .thumb{transform:translateY(-4px)}
-.t1{background:linear-gradient(160deg,var(--accent),color-mix(in srgb,var(--accent) 40%,#000))}
-.t1::after{content:"";position:absolute;inset:18% 14% -10% 14%;background:var(--surface);border-radius:10px 10px 0 0;box-shadow:0 10px 30px rgba(0,0,0,.25)}
-.t2{background:var(--mark)}
-.t2::after{content:"";position:absolute;width:46%;aspect-ratio:9/16;left:27%;top:12%;background:var(--ink);border-radius:18px}
-.t3{background:repeating-linear-gradient(90deg,var(--surface) 0 22px,color-mix(in srgb,var(--accent) 14%,var(--surface)) 22px 44px)}
-.t3::after{content:"Aa";position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:clamp(4rem,12vw,7rem);color:var(--accent);letter-spacing:-.05em}
-.t4{background:var(--ink)}
-.t4::after{content:"";position:absolute;left:10%;right:10%;bottom:16%;height:52%;background:linear-gradient(to top,var(--accent) 0 100%) 0 100%/14% 40% no-repeat,linear-gradient(var(--accent),var(--accent)) 28% 100%/14% 70% no-repeat,linear-gradient(var(--accent),var(--accent)) 57% 100%/14% 55% no-repeat,linear-gradient(var(--mark),var(--mark)) 86% 100%/14% 100% no-repeat}
-.proj-meta{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
-.proj h3{font-family:var(--display);font-size:1.35rem;margin:0;letter-spacing:-.02em}
-.proj p{margin:4px 0 0;color:var(--muted);font-size:.93rem}
-.tag{font-family:var(--mono);font-size:.72rem;color:var(--muted);white-space:nowrap}
-
-.timeline{list-style:none;margin:0;padding:0;display:grid}
-.timeline li{display:grid;grid-template-columns:140px 1fr;gap:16px;padding-block:18px;border-bottom:1px solid var(--line)}
-.timeline li:first-child{padding-top:0}
-@media (max-width:560px){.timeline li{grid-template-columns:1fr;gap:4px}}
-.when{font-family:var(--mono);font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums}
-.timeline h3{margin:0;font-size:1.05rem}
-.timeline p{margin:4px 0 0;color:var(--muted);font-size:.93rem;max-width:60ch}
-
-.contact{background:var(--accent);color:var(--accent-ink);border-radius:22px;padding:clamp(28px,6vw,56px);display:grid;gap:22px}
-.contact h2{font-size:clamp(2.2rem,7vw,4.2rem);max-width:14ch;text-wrap:balance}
-.mailrow{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.mail{font-family:var(--mono);font-size:clamp(.95rem,2.4vw,1.2rem);background:color-mix(in srgb,var(--accent-ink) 14%,transparent);padding:10px 16px;border-radius:10px;user-select:all;word-break:break-all}
-.contact .btn{border-color:var(--accent-ink);color:var(--accent-ink)}
-.socials{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:.95rem}
-.socials a{text-underline-offset:4px}
-footer{padding-block:32px;color:var(--muted);font-size:.82rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-.ph{font-family:var(--mono);font-size:.7rem;background:var(--mark);color:var(--ink);padding:1px 6px;border-radius:4px;vertical-align:middle}
+  .text-stroke { -webkit-text-stroke: 1px rgba(255,255,255,0.25); color: transparent; }
+  .icon { width: 1.25rem; height: 1.25rem; fill: none; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
 </style>
+</head>
+<body class="bg-brand-dark text-slate-400 font-sans antialiased selection:bg-brand-accent selection:text-brand-dark">
 
-<nav>
-  <div class="wrap">
-    <a class="logo" href="#top">richky<span>.</span></a>
-    <div class="links">
-      <a href="#tentang">Tentang</a><a href="#keahlian">Keahlian</a><a href="#proyek">Proyek</a><a href="#pengalaman">Pengalaman</a><a href="#kontak">Kontak</a>
-    </div>
+<!-- Lucide icons (inline, tanpa request tambahan) -->
+<svg width="0" height="0" class="absolute" aria-hidden="true">
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+  <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7M12 19V5"/></symbol>
+  <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10M7 17 17 7"/></symbol>
+  <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+  <symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5a2 2 0 0 0 2 2h1M16 21h1a2 2 0 0 0 2-2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1"/></symbol>
+  <symbol id="i-atom" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"/></symbol>
+  <symbol id="i-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="14" height="14" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+</svg>
+
+<!-- Grid overlay global -->
+<div class="fixed inset-0 z-0 pointer-events-none" aria-hidden="true">
+  <div class="mx-auto h-full max-w-[1600px] grid grid-cols-4 lg:grid-cols-12 px-4 sm:px-8">
+    <div class="border-r border-l border-slate-400/10"></div><div class="border-r border-slate-400/10"></div><div class="border-r border-slate-400/10"></div><div class="border-r border-slate-400/10"></div>
+    <div class="hidden lg:block border-r border-slate-400/10"></div><div class="hidden lg:block border-r border-slate-400/10"></div><div class="hidden lg:block border-r border-slate-400/10"></div><div class="hidden lg:block border-r border-slate-400/10"></div>
+    <div class="hidden lg:block border-r border-slate-400/10"></div><div class="hidden lg:block border-r border-slate-400/10"></div><div class="hidden lg:block border-r border-slate-400/10"></div><div class="hidden lg:block border-r border-slate-400/10"></div>
   </div>
-</nav>
+</div>
 
-<main class="wrap" id="top">
-  <header class="hero">
-    <div>
-      <span class="status"><i></i>Terbuka untuk proyek baru</span>
-      <h1>Halo, gw <em>Richky Rifadi.</em></h1>
-      <p class="lede"><b>Mahasiswa IT di Pradita University</b>. Ini kumpulan karya dan proyek gw.</p>
-      <div class="cta">
-        <a class="btn primary" href="#proyek">Lihat proyek →</a>
-        <a class="btn" href="#kontak">Hubungi gw</a>
-      </div>
+<!-- Header -->
+<header class="fixed top-0 inset-x-0 z-50 h-20 backdrop-blur-md bg-brand-dark/90 border-b border-slate-800">
+  <div class="mx-auto max-w-[1600px] h-full px-4 sm:px-8 flex items-center justify-between gap-6">
+    <div class="flex items-center gap-4">
+      <button id="menuToggle" type="button" aria-label="Buka menu" class="w-10 h-10 grid place-items-center border border-slate-800 hover:border-brand-accent hover:text-brand-accent transition-colors">
+        <svg class="icon"><use href="#i-menu"/></svg>
+      </button>
+      <a href="#home" class="font-mono text-sm tracking-widest text-white uppercase">Richky<span class="text-brand-accent">®</span></a>
     </div>
-    <aside class="idcard" aria-label="Kartu profil">
-      <div class="avatar">foto kamu di sini</div>
-      <dl class="facts">
-        <dt>Nama</dt><dd>Richky Rifadi</dd>
-        <dt>Peran</dt><dd>Mahasiswa IT</dd>
-        <dt>Kampus</dt><dd>Pradita University</dd>
-        <dt>Fokus</dt><dd>Cybersecurity Engineer</dd>
-      </dl>
-    </aside>
-  </header>
+    <nav class="hidden md:flex items-center gap-10 font-mono text-xs uppercase tracking-widest">
+      <a href="#tentang" class="hover:text-brand-accent transition-colors"><span class="text-slate-600">01</span> Tentang</a>
+      <a href="#keahlian" class="hover:text-brand-accent transition-colors"><span class="text-slate-600">02</span> Keahlian</a>
+      <a href="#proyek" class="hover:text-brand-accent transition-colors"><span class="text-slate-600">03</span> Proyek</a>
+      <a href="#kontak" class="hover:text-brand-accent transition-colors"><span class="text-slate-600">04</span> Kontak</a>
+    </nav>
+    <a href="#kontak" class="hidden sm:inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-brand-dark bg-brand-accent px-4 py-2.5 hover:bg-white transition-colors">
+      Hubungi <svg class="icon w-4 h-4"><use href="#i-arrow-up-right"/></svg>
+    </a>
+  </div>
+</header>
 
-  <section id="tentang">
-    <div class="sec-head"><h2>Tentang</h2><span class="eyebrow">Siapa gw</span></div>
-    <div class="about">
-      <div>
-        <p>Gw seorang introvert yang sayang banget sama Barca. Visca el Barça!</p>
-        <p>Di waktu luang, gw paling suka main game dan dengerin musik.</p>
+<!-- Sidebar menu -->
+<div id="menuContainer" class="fixed inset-0 z-50 opacity-0 pointer-events-none transition-opacity duration-300">
+  <div id="menuOverlay" class="absolute inset-0 bg-black/60"></div>
+  <aside id="menuPanel" class="absolute left-0 top-0 h-full w-80 max-w-[85vw] bg-brand-dark border-r border-slate-800 -translate-x-full transition-transform duration-500 flex flex-col">
+    <div class="h-20 px-6 flex items-center justify-between border-b border-slate-800">
+      <span class="font-mono text-xs uppercase tracking-widest">Menu</span>
+      <button id="closeMenu" type="button" aria-label="Tutup menu" class="w-10 h-10 grid place-items-center border border-slate-800 hover:border-brand-accent hover:text-brand-accent transition-colors">
+        <svg class="icon"><use href="#i-x"/></svg>
+      </button>
+    </div>
+    <nav class="flex-1 px-6 py-8 flex flex-col gap-6">
+      <a href="#home" class="menu-link group flex items-baseline gap-4 text-3xl font-semibold text-white hover:text-brand-accent transition-colors"><span class="font-mono text-xs text-slate-600">00</span>Home</a>
+      <a href="#tentang" class="menu-link group flex items-baseline gap-4 text-3xl font-semibold text-white hover:text-brand-accent transition-colors"><span class="font-mono text-xs text-slate-600">01</span>Tentang</a>
+      <a href="#keahlian" class="menu-link group flex items-baseline gap-4 text-3xl font-semibold text-white hover:text-brand-accent transition-colors"><span class="font-mono text-xs text-slate-600">02</span>Keahlian</a>
+      <a href="#proyek" class="menu-link group flex items-baseline gap-4 text-3xl font-semibold text-white hover:text-brand-accent transition-colors"><span class="font-mono text-xs text-slate-600">03</span>Proyek</a>
+      <a href="#kontak" class="menu-link group flex items-baseline gap-4 text-3xl font-semibold text-white hover:text-brand-accent transition-colors"><span class="font-mono text-xs text-slate-600">04</span>Kontak</a>
+    </nav>
+    <div class="px-6 py-6 border-t border-slate-800 font-mono text-xs flex gap-6">
+      <a href="https://www.instagram.com/rchk_y" target="_blank" rel="noopener" class="hover:text-brand-accent">Instagram</a>
+      <a href="https://www.tiktok.com/@rchk_y" target="_blank" rel="noopener" class="hover:text-brand-accent">TikTok</a>
+    </div>
+  </aside>
+</div>
+
+<main id="home">
+
+  <!-- 1. Hero -->
+  <section class="relative z-10 min-h-screen pt-20 overflow-hidden border-b border-slate-800">
+    <div data-us-project="bKN5upvoulAmWvInmHza" class="absolute inset-0 -z-10 opacity-60 pointer-events-none" aria-hidden="true"></div>
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_70%_30%,rgba(125,211,252,0.12),transparent_60%)]" aria-hidden="true"></div>
+    <div class="mx-auto max-w-[1600px] px-4 sm:px-8 min-h-[calc(100vh-5rem)] grid lg:grid-cols-12 gap-10 content-end pb-12 lg:pb-16">
+      <div class="lg:col-span-12">
+        <p class="font-mono text-xs uppercase tracking-widest text-brand-accent mb-6">[ Portfolio — 2026 ]</p>
+        <h1 class="font-extrabold uppercase leading-[0.85] tracking-tighter text-white text-[3.4rem] sm:text-7xl md:text-8xl lg:text-[9rem]">
+          Richky<br><span class="text-stroke">Rifadi</span>
+        </h1>
       </div>
-      <div class="stats">
-        <div class="stat"><strong>3+</strong><span>tahun pengalaman</span></div>
-        <div class="stat"><strong>20</strong><span>proyek selesai</span></div>
-        <div class="stat"><strong>12</strong><span>klien puas</span></div>
+      <div class="lg:col-span-7 flex flex-col justify-end gap-8">
+        <p class="text-lg sm:text-xl text-slate-300 max-w-xl leading-relaxed">
+          Mahasiswa IT di <span class="text-white">Pradita University</span> yang lagi mengasah skill buat jadi <span class="text-brand-accent">Cybersecurity Engineer</span>.
+        </p>
+        <a href="#tentang" class="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-white group w-fit">
+          <span class="w-10 h-10 grid place-items-center border border-slate-700 group-hover:border-brand-accent group-hover:text-brand-accent transition-colors"><svg class="icon w-4 h-4"><use href="#i-arrow-down"/></svg></span>
+          Scroll ke bawah
+        </a>
+      </div>
+      <div class="lg:col-span-4 lg:col-start-9 self-end">
+        <div class="bg-white/5 backdrop-blur-sm border border-slate-800 p-6">
+          <div class="flex items-center justify-between mb-6">
+            <span class="font-mono text-xs uppercase tracking-widest text-white">Studio Status</span>
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+            </span>
+          </div>
+          <dl class="grid gap-3 text-sm">
+            <div class="flex justify-between gap-4 border-b border-slate-800 pb-3"><dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Status</dt><dd class="text-white text-right">Terbuka untuk proyek baru</dd></div>
+            <div class="flex justify-between gap-4 border-b border-slate-800 pb-3"><dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Kampus</dt><dd class="text-white text-right">Pradita University</dd></div>
+            <div class="flex justify-between gap-4"><dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Fokus</dt><dd class="text-white text-right">Cybersecurity Engineer</dd></div>
+          </dl>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="keahlian">
-    <div class="sec-head"><h2>Keahlian</h2><span class="eyebrow">Tools &amp; skill</span></div>
-    <div class="skills">
-      <div><h3>Desain</h3><ul class="chips"><li>Figma</li><li>UI/UX</li><li>Branding</li><li>Canva</li></ul></div>
-      <div><h3>Pengembangan</h3><ul class="chips"><li>HTML &amp; CSS</li><li>JavaScript</li><li>React</li><li>WordPress</li></ul></div>
-      <div><h3>Konten</h3><ul class="chips"><li>Video editing</li><li>CapCut</li><li>Copywriting</li><li>Fotografi</li></ul></div>
-    </div>
-  </section>
-
-  <section id="proyek">
-    <div class="sec-head"><h2>Proyek pilihan</h2><span class="eyebrow">4 contoh karya</span></div>
-    <div class="projects">
-      <a class="proj" href="#proyek"><div class="thumb t1"></div><div class="proj-meta"><div><h3>Website Kopi Senja</h3><p>Landing page untuk kedai kopi lokal, pesanan online naik 40%.</p></div><span class="tag">Web · 2026</span></div></a>
-      <a class="proj" href="#proyek"><div class="thumb t2"></div><div class="proj-meta"><div><h3>Aplikasi Catat Duit</h3><p>Desain aplikasi pencatat keuangan untuk anak kos.</p></div><span class="tag">UI/UX · 2025</span></div></a>
-      <a class="proj" href="#proyek"><div class="thumb t3"></div><div class="proj-meta"><div><h3>Rebranding Toko Batik</h3><p>Logo, warna, dan tipografi baru untuk UMKM batik.</p></div><span class="tag">Brand · 2025</span></div></a>
-      <a class="proj" href="#proyek"><div class="thumb t4"></div><div class="proj-meta"><div><h3>Konten TikTok 30 Hari</h3><p>Seri video edukasi, total 1,2 juta views.</p></div><span class="tag">Konten · 2024</span></div></a>
-    </div>
-  </section>
-
-  <section id="pengalaman">
-    <div class="sec-head"><h2>Pengalaman</h2><span class="eyebrow">Perjalanan</span></div>
-    <ul class="timeline">
-      <li><span class="when">2025 — sekarang</span><div><h3>Freelancer</h3><p>Kerja bareng UMKM dan kreator untuk desain, website, dan konten.</p></div></li>
-      <li><span class="when">2023 — 2025</span><div><h3>Desainer Junior, Studio Contoh</h3><p>Pegang aset media sosial dan landing page untuk 10+ klien.</p></div></li>
-      <li><span class="when">Sekarang</span><div><h3>Mahasiswa IT, Pradita University</h3><p>Sedang kuliah di bidang Teknologi Informasi.</p></div></li>
-    </ul>
-  </section>
-
-  <section id="kontak">
-    <div class="contact">
-      <span class="eyebrow" style="color:inherit;opacity:.8">Kontak</span>
-      <h2>Ada proyek? Yuk ngobrol.</h2>
-      <div class="mailrow">
-        <span class="mail" id="mail">richkyrifadi@gmail.com</span>
-        <button class="btn" id="copy" type="button">Salin email</button>
+  <!-- 2. Tentang -->
+  <section id="tentang" class="relative z-10 border-b border-slate-800 scroll-mt-20">
+    <div class="mx-auto max-w-[1600px] px-4 sm:px-8 py-24 lg:py-32 grid lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-3">
+        <p class="font-mono text-xs uppercase tracking-widest"><span class="text-brand-accent">01</span> / Tentang</p>
       </div>
-      <div class="socials">
-        <a href="https://www.instagram.com/rchk_y" target="_blank" rel="noopener">Instagram @rchk_y</a>
-        <a href="https://www.tiktok.com/@rchk_y" target="_blank" rel="noopener">TikTok @rchk_y</a>
+      <div class="lg:col-span-8">
+        <p class="text-2xl sm:text-4xl lg:text-5xl font-medium leading-tight tracking-tight text-white">
+          Gw seorang introvert yang sayang banget sama <span class="text-brand-accent">Barca</span>. <span class="text-slate-500">Visca el Barça!</span>
+        </p>
+        <p class="mt-8 text-lg text-slate-400 max-w-2xl">Di waktu luang, gw paling suka main game dan dengerin musik.</p>
       </div>
     </div>
   </section>
 
-  <footer><span>© 2026 Richky Rifadi</span><span>Isi halaman ini masih contoh dan akan diganti dengan data asli.</span></footer>
+  <!-- 3. Keahlian -->
+  <section id="keahlian" class="relative z-10 border-b border-slate-800 scroll-mt-20">
+    <div class="mx-auto max-w-[1600px] px-4 sm:px-8 py-24 lg:py-32">
+      <div class="flex flex-wrap items-end justify-between gap-6 mb-12">
+        <div>
+          <p class="font-mono text-xs uppercase tracking-widest mb-4"><span class="text-brand-accent">02</span> / Keahlian</p>
+          <h2 class="text-4xl sm:text-6xl font-bold uppercase tracking-tighter text-white">Pengembangan</h2>
+        </div>
+        <p class="max-w-sm text-sm">Tools yang gw pakai buat bikin dan ngulik web.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-800 border border-slate-800">
+        <div class="group bg-brand-dark p-8 flex flex-col gap-16 hover:bg-white/[0.03] transition-colors">
+          <div class="flex justify-between items-start"><svg class="icon w-7 h-7 text-brand-accent"><use href="#i-code"/></svg><span class="font-mono text-xs text-slate-600">/01</span></div>
+          <h3 class="text-2xl font-semibold text-white">HTML &amp; CSS</h3>
+        </div>
+        <div class="group bg-brand-dark p-8 flex flex-col gap-16 hover:bg-white/[0.03] transition-colors">
+          <div class="flex justify-between items-start"><svg class="icon w-7 h-7 text-brand-accent"><use href="#i-braces"/></svg><span class="font-mono text-xs text-slate-600">/02</span></div>
+          <h3 class="text-2xl font-semibold text-white">JavaScript</h3>
+        </div>
+        <div class="group bg-brand-dark p-8 flex flex-col gap-16 hover:bg-white/[0.03] transition-colors">
+          <div class="flex justify-between items-start"><svg class="icon w-7 h-7 text-brand-accent"><use href="#i-atom"/></svg><span class="font-mono text-xs text-slate-600">/03</span></div>
+          <h3 class="text-2xl font-semibold text-white">React</h3>
+        </div>
+        <div class="group bg-brand-dark p-8 flex flex-col gap-16 hover:bg-white/[0.03] transition-colors">
+          <div class="flex justify-between items-start"><svg class="icon w-7 h-7 text-brand-accent"><use href="#i-layout"/></svg><span class="font-mono text-xs text-slate-600">/04</span></div>
+          <h3 class="text-2xl font-semibold text-white">WordPress</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Proyek -->
+  <section id="proyek" class="relative z-10 border-b border-slate-800 scroll-mt-20">
+    <div class="mx-auto max-w-[1600px] px-4 sm:px-8 py-24 lg:py-32">
+      <div class="flex flex-wrap items-end justify-between gap-6 mb-12">
+        <div>
+          <p class="font-mono text-xs uppercase tracking-widest mb-4"><span class="text-brand-accent">03</span> / Proyek</p>
+          <h2 class="text-4xl sm:text-6xl font-bold uppercase tracking-tighter text-white">Karya <span class="text-stroke">Gw</span></h2>
+        </div>
+        <p class="max-w-sm text-sm">Proyek segera ditambahkan.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-slate-800 border border-slate-800">
+        <!--
+          Cara nambah proyek: ganti salah satu blok "Segera hadir" di bawah dengan blok ini.
+          <a href="LINK-PROYEK" target="_blank" rel="noopener" class="group block overflow-hidden">
+            <div class="aspect-[4/5] overflow-hidden"><img src="GAMBAR.jpg" alt="Nama Proyek" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"></div>
+            <div class="p-6 flex justify-between items-end gap-4">
+              <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-500"><p class="font-mono text-xs uppercase tracking-widest text-brand-accent">Kategori · 2026</p><h3 class="text-2xl font-semibold text-white mt-2">Nama Proyek</h3></div>
+            </div>
+          </a>
+        -->
+        <div class="group aspect-[4/5] p-8 flex flex-col justify-between overflow-hidden">
+          <span class="font-mono text-xs text-slate-600">/01</span>
+          <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+            <svg class="icon w-8 h-8 text-slate-700 group-hover:text-brand-accent transition-colors mb-6"><use href="#i-plus"/></svg>
+            <p class="font-mono text-xs uppercase tracking-widest text-slate-500">Segera hadir</p>
+          </div>
+        </div>
+        <div class="group aspect-[4/5] p-8 flex flex-col justify-between overflow-hidden">
+          <span class="font-mono text-xs text-slate-600">/02</span>
+          <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+            <svg class="icon w-8 h-8 text-slate-700 group-hover:text-brand-accent transition-colors mb-6"><use href="#i-plus"/></svg>
+            <p class="font-mono text-xs uppercase tracking-widest text-slate-500">Segera hadir</p>
+          </div>
+        </div>
+        <div class="group aspect-[4/5] p-8 flex flex-col justify-between overflow-hidden">
+          <span class="font-mono text-xs text-slate-600">/03</span>
+          <div class="translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+            <svg class="icon w-8 h-8 text-slate-700 group-hover:text-brand-accent transition-colors mb-6"><use href="#i-plus"/></svg>
+            <p class="font-mono text-xs uppercase tracking-widest text-slate-500">Segera hadir</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Kontak -->
+  <section id="kontak" class="relative z-10 border-b border-slate-800 scroll-mt-20">
+    <div class="mx-auto max-w-[1600px] px-4 sm:px-8 py-24 lg:py-32 grid lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-3">
+        <p class="font-mono text-xs uppercase tracking-widest"><span class="text-brand-accent">04</span> / Kontak</p>
+      </div>
+      <div class="lg:col-span-9">
+        <h2 class="font-extrabold uppercase leading-[0.9] tracking-tighter text-white text-5xl sm:text-7xl lg:text-8xl">Ada ide?<br><span class="text-stroke">Yuk ngobrol.</span></h2>
+        <div class="mt-12 flex flex-wrap items-center gap-4">
+          <span id="mail" class="font-mono text-base sm:text-xl text-white border border-slate-800 bg-white/5 px-5 py-3 select-all break-all">richkyrifadi@gmail.com</span>
+          <button id="copyMail" type="button" class="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-brand-dark bg-brand-accent px-5 py-4 hover:bg-white transition-colors">
+            <svg class="icon w-4 h-4"><use href="#i-copy"/></svg><span>Salin email</span>
+          </button>
+        </div>
+        <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-px bg-slate-800 border border-slate-800 max-w-2xl">
+          <a href="https://www.instagram.com/rchk_y" target="_blank" rel="noopener" class="group bg-brand-dark p-6 flex items-center justify-between hover:bg-white/[0.03] transition-colors">
+            <span><span class="block font-mono text-xs uppercase tracking-widest text-slate-500">Instagram</span><span class="text-white text-lg">@rchk_y</span></span>
+            <svg class="icon group-hover:text-brand-accent group-hover:-translate-y-1 group-hover:translate-x-1 transition"><use href="#i-arrow-up-right"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@rchk_y" target="_blank" rel="noopener" class="group bg-brand-dark p-6 flex items-center justify-between hover:bg-white/[0.03] transition-colors">
+            <span><span class="block font-mono text-xs uppercase tracking-widest text-slate-500">TikTok</span><span class="text-white text-lg">@rchk_y</span></span>
+            <svg class="icon group-hover:text-brand-accent group-hover:-translate-y-1 group-hover:translate-x-1 transition"><use href="#i-arrow-up-right"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
+<!-- Footer -->
+<footer class="relative z-10">
+  <div class="mx-auto max-w-[1600px] px-4 sm:px-8 py-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+    <nav class="footer-nav flex flex-wrap gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-widest">
+      <a href="#home" class="hover:text-brand-accent">00 Home</a>
+      <a href="#tentang" class="hover:text-brand-accent">01 Tentang</a>
+      <a href="#keahlian" class="hover:text-brand-accent">02 Keahlian</a>
+      <a href="#proyek" class="hover:text-brand-accent">03 Proyek</a>
+      <a href="#kontak" class="hover:text-brand-accent">04 Kontak</a>
+    </nav>
+    <p class="font-mono text-xs text-slate-600">© 2026 Richky Rifadi</p>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<a id="backToTop" href="#home" aria-label="Kembali ke atas" class="fixed bottom-6 right-6 z-50 w-12 h-12 grid place-items-center bg-brand-accent text-brand-dark opacity-0 pointer-events-none translate-y-4 transition-all duration-300 hover:bg-white">
+  <svg class="icon"><use href="#i-arrow-up"/></svg>
+</a>
+
 <script>
-document.getElementById('copy').addEventListener('click', async e => {
-  const b = e.currentTarget, t = document.getElementById('mail').textContent;
-  try { await navigator.clipboard.writeText(t); b.textContent = 'Tersalin ✓'; }
-  catch { const r = document.createRange(); r.selectNodeContents(document.getElementById('mail')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Tekan Ctrl+C'; }
-  setTimeout(() => b.textContent = 'Salin email', 2000);
-});
+  // Menu
+  const menuContainer = document.getElementById('menuContainer');
+  const menuPanel = document.getElementById('menuPanel');
+  function openMenu() {
+    menuContainer.classList.remove('opacity-0', 'pointer-events-none');
+    menuPanel.classList.remove('-translate-x-full');
+    menuPanel.classList.add('translate-x-0');
+  }
+  function closeMenu() {
+    menuContainer.classList.add('opacity-0', 'pointer-events-none');
+    menuPanel.classList.add('-translate-x-full');
+    menuPanel.classList.remove('translate-x-0');
+  }
+  document.getElementById('menuToggle').addEventListener('click', openMenu);
+  document.getElementById('closeMenu').addEventListener('click', closeMenu);
+  document.getElementById('menuOverlay').addEventListener('click', closeMenu);
+  document.querySelectorAll('.menu-link').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+  // Back to top
+  const btt = document.getElementById('backToTop');
+  const onScroll = () => {
+    const show = window.scrollY > 300;
+    btt.classList.toggle('opacity-0', !show);
+    btt.classList.toggle('pointer-events-none', !show);
+    btt.classList.toggle('translate-y-4', !show);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Salin email
+  document.getElementById('copyMail').addEventListener('click', async e => {
+    const label = e.currentTarget.querySelector('span');
+    const mail = document.getElementById('mail');
+    try { await navigator.clipboard.writeText(mail.textContent); label.textContent = 'Tersalin'; }
+    catch { const r = document.createRange(); r.selectNodeContents(mail); const s = getSelection(); s.removeAllRanges(); s.addRange(r); label.textContent = 'Tekan Ctrl+C'; }
+    setTimeout(() => label.textContent = 'Salin email', 2000);
+  });
 </script>
+
+<!-- Background animasi hero (Unicorn Studio) -->
+<script>
+  !function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.34/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head||document.body).appendChild(i)}}();
+</script>
+</body>
+</html>
