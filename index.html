@@ -107,46 +107,22 @@
   <!-- 1. Hero -->
   <section class="relative z-10 min-h-screen pt-20 overflow-hidden border-b border-slate-800">
     <div data-us-project="bKN5upvoulAmWvInmHza" class="absolute inset-0 -z-10 opacity-60 pointer-events-none" aria-hidden="true"></div>
-    <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_75%_40%,rgba(125,211,252,0.12),transparent_60%)]" aria-hidden="true"></div>
-    <div class="mx-auto max-w-[1600px] px-4 sm:px-8 min-h-[calc(100vh-5rem)] grid lg:grid-cols-12 gap-16 lg:gap-10 items-center py-12 lg:py-16">
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_75%_35%,rgba(125,211,252,0.12),transparent_60%)]" aria-hidden="true"></div>
+    <div class="mx-auto max-w-[1600px] px-4 sm:px-8 min-h-[calc(100vh-5rem)] flex flex-col justify-center gap-12 py-12 lg:py-16">
+      <p class="font-mono text-xs uppercase tracking-widest text-brand-accent">[ Portfolio — 2026 ]</p>
 
-      <div class="lg:col-span-7 flex flex-col gap-8 min-w-0">
-        <p class="font-mono text-xs uppercase tracking-widest text-brand-accent">[ Portfolio — 2026 ]</p>
-        <h1 class="font-extrabold uppercase leading-[0.85] tracking-tighter text-white text-[3.4rem] sm:text-7xl md:text-8xl xl:text-[9rem]">
+      <!-- Nama + kartu ID lineart ala kantor -->
+      <div class="grid sm:grid-cols-[minmax(0,1fr)_auto] items-center gap-12 sm:gap-8 lg:gap-12">
+        <h1 class="font-extrabold uppercase leading-[0.85] tracking-tighter text-white text-[3.4rem] sm:text-5xl md:text-7xl lg:text-8xl xl:text-[9rem]">
           Richky<br><span class="text-stroke">Rifadi</span>
         </h1>
-        <p class="text-lg sm:text-xl text-slate-300 max-w-xl leading-relaxed">
-          Mahasiswa IT di <span class="text-white">Pradita University</span> yang sedang mengasah keahlian untuk menjadi <span class="text-brand-accent">Cybersecurity Engineer</span>.
-        </p>
-        <div class="bg-white/5 backdrop-blur-sm border border-slate-800 p-6 max-w-md">
-          <div class="flex items-center justify-between mb-5">
-            <span class="font-mono text-xs uppercase tracking-widest text-white">Status Saat Ini</span>
-            <span class="relative flex h-2.5 w-2.5">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
-            </span>
-          </div>
-          <dl class="grid gap-3 text-sm">
-            <div class="flex justify-between gap-4 border-b border-slate-800 pb-3"><dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Status</dt><dd class="text-white text-right">Terbuka untuk proyek baru</dd></div>
-            <div class="flex justify-between gap-4 border-b border-slate-800 pb-3"><dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Kampus</dt><dd class="text-white text-right">Pradita University</dd></div>
-            <div class="flex justify-between gap-4"><dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Fokus</dt><dd class="text-white text-right">Cybersecurity Engineer</dd></div>
-          </dl>
-        </div>
-        <a href="#tentang" class="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-white group w-fit">
-          <span class="w-10 h-10 grid place-items-center border border-slate-700 group-hover:border-brand-accent group-hover:text-brand-accent transition-colors"><svg class="icon w-4 h-4"><use href="#i-arrow-down"/></svg></span>
-          Scroll ke bawah
-        </a>
-      </div>
-
-      <!-- Kartu ID lineart ala kantor -->
-      <div class="lg:col-span-5 flex justify-center">
-        <div class="relative w-full max-w-sm pt-28">
-          <svg class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-28 text-brand-accent" viewBox="0 0 160 112" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" aria-hidden="true">
-            <path d="M24 0 70 92M38 0 76 86M136 0 90 92M122 0 84 86"/>
-            <rect x="66" y="88" width="28" height="14" rx="3"/>
-            <path d="M80 102v10"/>
+        <div class="relative w-64 md:w-64 lg:w-72 xl:w-80 pt-20 justify-self-center sm:justify-self-end">
+          <svg class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-20 text-brand-accent" viewBox="0 0 160 100" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" aria-hidden="true">
+            <path d="M24 0 70 80M38 0 76 74M136 0 90 80M122 0 84 74"/>
+            <rect x="66" y="76" width="28" height="14" rx="3"/>
+            <path d="M80 90v10"/>
           </svg>
-          <div class="absolute top-36 left-5 -right-4 -bottom-4 border border-dashed border-slate-700" aria-hidden="true"></div>
+          <div class="absolute top-28 left-4 -right-3 -bottom-3 border border-dashed border-slate-700" aria-hidden="true"></div>
           <div class="relative border border-slate-700 bg-brand-dark/80 backdrop-blur-sm p-5">
             <div class="mx-auto mb-5 h-2 w-14 rounded-full border border-slate-600"></div>
             <div class="flex justify-between font-mono text-[11px] uppercase tracking-widest text-slate-500 mb-4">
@@ -169,6 +145,34 @@
               </svg>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 items-end">
+        <div class="lg:col-span-6 flex flex-col gap-8">
+          <p class="text-lg sm:text-xl text-slate-300 max-w-xl leading-relaxed">
+            Mahasiswa IT di <span class="text-white">Pradita University</span> yang sedang mengasah keahlian untuk menjadi <span class="text-brand-accent">Cybersecurity Engineer</span>.
+          </p>
+          <a href="#tentang" class="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-white group w-fit">
+          <span class="w-10 h-10 grid place-items-center border border-slate-700 group-hover:border-brand-accent group-hover:text-brand-accent transition-colors"><svg class="icon w-4 h-4"><use href="#i-arrow-down"/></svg></span>
+          Scroll ke bawah
+        </a>
+        </div>
+        <div class="lg:col-span-5 lg:col-start-8">
+          <div class="bg-white/5 backdrop-blur-sm border border-slate-800 p-6">
+          <div class="flex items-center justify-between mb-5">
+            <span class="font-mono text-xs uppercase tracking-widest text-white">Status Saat Ini</span>
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+            </span>
+          </div>
+          <dl class="grid gap-3 text-sm">
+            <div class="flex justify-between gap-4 border-b border-slate-800 pb-3"><dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Status</dt><dd class="text-white text-right">Terbuka untuk proyek baru</dd></div>
+            <div class="flex justify-between gap-4 border-b border-slate-800 pb-3"><dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Kampus</dt><dd class="text-white text-right">Pradita University</dd></div>
+            <div class="flex justify-between gap-4"><dt class="font-mono text-xs uppercase tracking-wider text-slate-500">Fokus</dt><dd class="text-white text-right">Cybersecurity Engineer</dd></div>
+          </dl>
+        </div>
         </div>
       </div>
     </div>
